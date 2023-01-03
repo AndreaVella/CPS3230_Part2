@@ -1,0 +1,30 @@
+[marketAlertUmProperty]AUTOMATON::> marketAlertUmProperty() STATE::>loggedOut
+Successful log in
+[marketAlertUmProperty]MOVED ON METHODCALL: void main.WebOperations.logOn() TO STATE::> loggedIn
+[marketAlertUmProperty]AUTOMATON::> marketAlertUmProperty() STATE::>loggedIn
+Logged Out
+[marketAlertUmProperty]MOVED ON METHODCALL: void main.WebOperations.logOut() TO STATE::> loggedOut
+[marketAlertUmProperty]AUTOMATON::> marketAlertUmProperty() STATE::>loggedOut
+Successful log in
+[marketAlertUmProperty]MOVED ON METHODCALL: void main.WebOperations.logOn() TO STATE::> loggedIn
+[marketAlertUmProperty]AUTOMATON::> marketAlertUmProperty() STATE::>loggedIn
+Logged Out
+[marketAlertUmProperty]MOVED ON METHODCALL: void main.WebOperations.logOut() TO STATE::> loggedOut
+[marketAlertUmProperty]AUTOMATON::> marketAlertUmProperty() STATE::>loggedOut
+Successful log in
+[marketAlertUmProperty]MOVED ON METHODCALL: void main.WebOperations.logOn() TO STATE::> loggedIn
+[marketAlertUmProperty]AUTOMATON::> marketAlertUmProperty() STATE::>loggedIn
+[marketAlertUmProperty]MOVED ON METHODCALL: void main.WebOperations.viewAlerts() TO STATE::> viewingAlert
+[marketAlertUmProperty]AUTOMATON::> marketAlertUmProperty() STATE::>viewingAlert
+[marketAlertUmProperty]MOVED ON METHODCALL: void main.WebOperations.viewAlerts() TO STATE::> viewingAlert
+[marketAlertUmProperty]AUTOMATON::> marketAlertUmProperty() STATE::>viewingAlert
+Alerts Deleted
+[marketAlertUmProperty]MOVED ON METHODCALL: int main.ApiRequests.deleteAlerts() TO STATE::> deletedAlert
+[marketAlertUmProperty]AUTOMATON::> marketAlertUmProperty() STATE::>deletedAlert
+Logged Out
+[marketAlertUmProperty]MOVED ON METHODCALL: void main.WebOperations.logOut() TO STATE::> loggedOut
+[marketAlertUmProperty]AUTOMATON::> marketAlertUmProperty() STATE::>loggedOut
+Successful log in
+[marketAlertUmProperty]MOVED ON METHODCALL: void main.WebOperations.logOn() TO STATE::> loggedIn
+[marketAlertUmProperty]AUTOMATON::> marketAlertUmProperty() STATE::>loggedIn
+[marketAlertUmProperty]MOVED ON METHODCALL: void main.WebOperations.viewAlerts() TO STATE::> viewingAlert

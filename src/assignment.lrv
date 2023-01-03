@@ -1,0 +1,48 @@
+GLOBAL {
+	VARIABLES {
+		boolean isLoggedInOnWebsite = false;
+		int eventLogType = 100;
+	}
+	
+	EVENTS{
+		logOn() = {*.logOn()}
+		logOut() = {*.logOut()}
+		viewAlerts() = {*.viewAlerts()}
+		postAlert() = {*.postAlert(jsonAlert)}
+		deleteAlerts() = {*.deleteAlerts()}
+	}
+	
+	PROPERTY marketAlertUmProperty{
+		STATES{
+			NORMAL{
+				loggedIn
+				postedAlert
+				deletedAlert
+				viewingAlert
+			}
+			STARTING{
+				loggedOut
+			}
+		}
+		
+		TRANSITIONS{
+			loggedOut -> loggedIn [logOn\isLoggedInOnWebsite == false\isLoggedInOnWebsite = true; System.out.println("Successful log in");]
+			loggedIn -> viewingAlert [viewAlerts\isLoggedInOnWebsite == true\eventLogType = 7;]
+			loggedIn -> postedAlert [postAlert\\eventLogType = 0; System.out.println("Alert Posted");]
+			loggedIn -> deletedAlert [deleteAlerts\\eventLogType = 1; System.out.println("Alerts Deleted");]
+			loggedIn -> loggedOut [logOut\isLoggedInOnWebsite == true\isLoggedInOnWebsite = false; System.out.println("Logged Out");]
+			postedAlert -> viewingAlert [viewAlerts\isLoggedInOnWebsite == true\eventLogType = 7;]
+			postedAlert -> postedAlert [postAlert\\eventLogType = 0; System.out.println("Alert Posted");]
+			postedAlert -> deletedAlert [deleteAlerts\\eventLogType = 1; System.out.println("Alerts Deleted");]
+			postedAlert -> loggedOut [logOut\isLoggedInOnWebsite == true\isLoggedInOnWebsite = false; System.out.println("Logged Out");]
+			deletedAlert -> viewingAlert [viewAlerts\isLoggedInOnWebsite == true\eventLogType = 7;]
+			deletedAlert -> postedAlert [postAlert\\eventLogType = 0; System.out.println("Alert Posted");]
+			deletedAlert -> deletedAlert [deleteAlerts\\eventLogType = 1; System.out.println("Alerts Deleted");]
+			deletedAlert -> loggedOut [logOut\isLoggedInOnWebsite == true\isLoggedInOnWebsite = false; System.out.println("Logged Out");]
+			viewingAlert -> viewingAlert [viewAlerts\isLoggedInOnWebsite == true\eventLogType = 7;]
+			viewingAlert -> postedAlert [postAlert\\eventLogType = 0; System.out.println("Alert Posted");]
+			viewingAlert -> deletedAlert [deleteAlerts\\eventLogType = 1; System.out.println("Alerts Deleted");]
+			viewingAlert -> loggedOut [logOut\isLoggedInOnWebsite == true\isLoggedInOnWebsite = false; System.out.println("Logged Out");]
+		}
+	}
+}

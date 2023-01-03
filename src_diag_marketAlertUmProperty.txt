@@ -1,0 +1,23 @@
+digraph _logic_marketAlertUmProperty {
+rankdir=LR;
+node [shape = circle]; loggedIn postedAlert deletedAlert viewingAlert loggedOut;
+node [shape = point]; _s_s;
+_s_s -> loggedOut;
+postedAlert -> viewingAlert [ label = "(1) viewAlerts\\isLoggedInOnWebsite == true \\eventLogType = 7 ; "];
+postedAlert -> postedAlert [ label = "(2) postAlert\\\\eventLogType = 0 ; System . out . println ( \" Alert Posted \" ) ; "];
+postedAlert -> deletedAlert [ label = "(3) deleteAlerts\\\\eventLogType = 1 ; System . out . println ( \" Alerts Deleted \" ) ; "];
+postedAlert -> loggedOut [ label = "(4) logOut\\isLoggedInOnWebsite == true \\isLoggedInOnWebsite = false ; System . out . println ( \" Logged Out \" ) ; "];
+deletedAlert -> viewingAlert [ label = "(1) viewAlerts\\isLoggedInOnWebsite == true \\eventLogType = 7 ; "];
+deletedAlert -> postedAlert [ label = "(2) postAlert\\\\eventLogType = 0 ; System . out . println ( \" Alert Posted \" ) ; "];
+deletedAlert -> deletedAlert [ label = "(3) deleteAlerts\\\\eventLogType = 1 ; System . out . println ( \" Alerts Deleted \" ) ; "];
+deletedAlert -> loggedOut [ label = "(4) logOut\\isLoggedInOnWebsite == true \\isLoggedInOnWebsite = false ; System . out . println ( \" Logged Out \" ) ; "];
+viewingAlert -> viewingAlert [ label = "(1) viewAlerts\\isLoggedInOnWebsite == true \\eventLogType = 7 ; "];
+viewingAlert -> postedAlert [ label = "(2) postAlert\\\\eventLogType = 0 ; System . out . println ( \" Alert Posted \" ) ; "];
+viewingAlert -> deletedAlert [ label = "(3) deleteAlerts\\\\eventLogType = 1 ; System . out . println ( \" Alerts Deleted \" ) ; "];
+viewingAlert -> loggedOut [ label = "(4) logOut\\isLoggedInOnWebsite == true \\isLoggedInOnWebsite = false ; System . out . println ( \" Logged Out \" ) ; "];
+loggedIn -> viewingAlert [ label = "(1) viewAlerts\\isLoggedInOnWebsite == true \\eventLogType = 7 ; "];
+loggedIn -> postedAlert [ label = "(2) postAlert\\\\eventLogType = 0 ; System . out . println ( \" Alert Posted \" ) ; "];
+loggedIn -> deletedAlert [ label = "(3) deleteAlerts\\\\eventLogType = 1 ; System . out . println ( \" Alerts Deleted \" ) ; "];
+loggedIn -> loggedOut [ label = "(4) logOut\\isLoggedInOnWebsite == true \\isLoggedInOnWebsite = false ; System . out . println ( \" Logged Out \" ) ; "];
+loggedOut -> loggedIn [ label = "(1) logOn\\isLoggedInOnWebsite == false \\isLoggedInOnWebsite = true ; System . out . println ( \" Successful log in \" ) ; "];
+}
